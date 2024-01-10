@@ -23,13 +23,11 @@ public class BrokenImages {
 
         int imgTotal = $$(".example img").size(); //Get total number of images
         for (int i = 0; i < imgTotal; i++) {
-            //Get <img src> for each image
-            String imgSrc = $$(".example img").attributes("src").get(i);
-
-            if (!(imgSrc.startsWith("img/"))) { //If image does not start with "img/" show error message
-                System.out.println("Path error for image #" + (i + 1) + ": " + imgSrc);
+            String imgSrc = $$(".example img").attributes("src").get(i); //Get <img src> for each image
+            if (imgSrc.startsWith("img/")) {
+                System.out.println("Image #" + (i + 1) + " - OK");
             } else {
-                System.out.println("Image #" + (i + 1) + " is ok");
+                System.out.println("Path error for image #" + (i + 1) + ": " + imgSrc);
             }
         }
     }
